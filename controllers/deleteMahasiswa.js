@@ -1,4 +1,4 @@
-import db from "../connection.js";
+import db from "../db/connection.js";
 
 export default (req, res) => {
   const id = parseInt(req.params.id);
