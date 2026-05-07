@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import route from "routes.js";
+import route from "../controllers/routes.js";
 
 const app = express();
 app.use(express.json());
