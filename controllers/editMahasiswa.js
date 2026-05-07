@@ -9,7 +9,7 @@ export default (req, res) => {
       data: {},
       status: false
     });
-    const sql = conn.prepare("UPDATE mahasiswa SET nama = ?, kelas = ?, jurusan = ? WHERE id = ?").run(nama, kelas, jurusan, id);
+    const sql = conn.prepare("UPDATE mahasiswa SET nama = ?, kelas = ?, jurusan = ? WHERE id_mahasiswa = ?").run(nama, kelas, jurusan, id);
     if (!sql) return res.status(400).json({
       message: "Gagal mengedit data mahasiswa!",
       data: sql,
