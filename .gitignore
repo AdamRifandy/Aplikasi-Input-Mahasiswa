@@ -1,4 +1,4 @@
 /node_modules/
 /.git/
 .env
-.db
+data_universitas.db
