@@ -1,7 +1,7 @@
 import conn from '../db/connection.js';
 export default (req, res) => {
   try {
-    const prepare = conn.prepare("SELECT * FROM mahasiswa");
+    const prepare = conn.prepare("SELECT * FROM mahasiswa").all();
     if (!prepare) return res.status(500).json({
       message: "Gagal mendapatkan semua data mahasiswa",
       data: prepare,
