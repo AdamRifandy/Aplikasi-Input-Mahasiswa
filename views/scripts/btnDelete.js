@@ -1,6 +1,6 @@
 async function deleteData(id) {
   try {
-    const getData = await fetch(`http://localhost:1945/mahasiswa/delete/$id}`, {
+    const getData = await fetch(`http://localhost:1945/mahasiswa/delete/{$id}`, {
       method: "DELETE"
     });
     const response = await getData.json();
