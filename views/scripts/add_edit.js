@@ -85,6 +85,7 @@ async function get_mahasiswa(id) {
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const url = new URL(window.location.href);
+    if (url.searchParams.get("type").replaceAll('"', "") !== "Edit") return;
     const id = url.searchParams.get("id");
     const getMahasiswa = await get_mahasiswa(id);
     if (getMahasiswa.status == false) {
