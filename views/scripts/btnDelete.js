@@ -4,8 +4,12 @@ async function deleteData(id) {
       method: "DELETE"
     });
     const response = await getData.json();
-    if (!getData.ok) return response;
-    return response;
+    if (!getData.ok) {
+      console.error(response);
+      alert(response.message);
+      return;
+    }
+    alert(response.message);
   } catch (err) {
     return err;
   }
@@ -16,13 +20,7 @@ document.addEventListener('click', async (e) => {
   if (e.target.id == "btnDelete") {
     const id = e.target.dataset.id;
     try {
-      const result = await deleteData(id);
-      if (result.status == false) {
-        console.error(result);
-        alert(result.message);
-        return;
-      }
-      alert(result.message);
+      await deleteData(id);
       window.location.href = "./";
     } catch (err) {
       console.error(err);
