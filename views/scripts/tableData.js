@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const tbody = document.getElementById("table-body");
-    const getData = await fetch("http://localhost:3000/mahasiswa/all");
+    const getData = await fetch("http://localhost:1945/mahasiswa/all");
     const response = await getData.json();
     if (!getData.ok) {
       alert(response.message);
