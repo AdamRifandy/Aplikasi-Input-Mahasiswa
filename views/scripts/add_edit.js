@@ -22,8 +22,26 @@ async function add_mahasiswa(nama, kelas, jurusan) {
 }
 
 async function edit_mahasiswa(nama, kelas, jurusan, id) {
-  const temporarydata = "ILYG-1";
-  return temporarydata;
+  try {
+    const sendData = await fetch(`http://localhost:1945/mahasiswa/edit/${id}`, {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        nama,
+        kelas,
+        jurusan
+      })
+    });
+    const response = await sendData.json();
+    if (!sendData.ok) {
+      console.error(response);
+      alert(response.message);
+      return;
+    }
+    alert(response.message);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 document.getElementById("btnSubmit").addEventListener('click', async (e) => {
