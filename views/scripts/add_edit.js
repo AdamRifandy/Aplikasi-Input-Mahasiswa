@@ -58,6 +58,11 @@ document.getElementById("btnSubmit").addEventListener('click', async (e) => {
       console.error(err);
     }
   } else if (type.replaceAll('"', '') == "Edit") {
-    return;
+    try {
+      const id = url.searchParams.get("id");
+      await edit_mahasiswa(nama.value, kelas.value, jurusan.value, id);
+    } catch (err) {
+      console.error(err);
+    }
   }
 });
