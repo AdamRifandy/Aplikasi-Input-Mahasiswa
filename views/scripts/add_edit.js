@@ -66,3 +66,29 @@ document.getElementById("btnSubmit").addEventListener('click', async (e) => {
     }
   }
 });
+
+async function get_mahasiswa(id) {
+  try {
+    const getData = await fetch(`http://localhost:1945/mahasiswa/get/${id}`, {
+      method: "POST"
+    });
+    const result = await getData.json();
+    if (!getData.ok) {
+      return result;
+    }
+    return result;
+  } catch (err) {
+    return err;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get("id");
+    const getMahasiswa = await get_mahasiswa(id);
+    
+  } catch (err) {
+    console.error(err);
+  }
+});
