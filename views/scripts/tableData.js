@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
     if (response.data.length === 0) {
-      const row = document.createElement('row');
+      const row = document.createElement('tr');
       const td = document.createElement('td');
+      td.colSpan = 5;
       td.textContent = "Tidak ada data mahasiswa yang tersedia...";
+      td.style.textAlign = "center";
       row.appendChild(td);
       tbody.appendChild(row);
     } else {
