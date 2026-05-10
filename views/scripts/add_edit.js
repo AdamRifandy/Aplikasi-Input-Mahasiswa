@@ -16,6 +16,7 @@ async function add_mahasiswa(nama, kelas, jurusan) {
       return;
     }
     alert(response.message);
+    window.location.href = "./";
   } catch (err) {
     console.error(err);
   }
@@ -39,6 +40,7 @@ async function edit_mahasiswa(nama, kelas, jurusan, id) {
       return;
     }
     alert(response.message);
+    window.location.href = "./"
   } catch (err) {
     console.error(err);
   }
@@ -54,6 +56,7 @@ document.getElementById("btnSubmit").addEventListener('click', async (e) => {
   if (type.replaceAll('"', '') == "Tambah") {
     try {
       await add_mahasiswa(nama.value, kelas.value, jurusan.value);
+      
     } catch (err) {
       console.error(err);
     }
