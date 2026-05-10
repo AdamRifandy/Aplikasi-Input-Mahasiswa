@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       for (let i = 0; i < response.data.length; i++) {
         const row = document.createElement('tr');
         const no = document.createElement('td');
-        no.textContent = i + 1;
+        no.textContent = i + 1 + ".";
         row.appendChild(no);
         const nama = document.createElement('td');
         nama.textContent = response.data[i].nama;
